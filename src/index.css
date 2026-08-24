@@ -40,13 +40,29 @@
   }
 }
 
-body {
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-  overflow: hidden;
-  height: 100vh;
-  width: 100vw;
+html, body {
+  font-family: 'Inter Variable', -apple-system, BlinkMacSystemFont, sans-serif;
   margin: 0;
   padding: 0;
+  width: 100%;
+}
+
+/* Mobile & Tablet Scrolling Support */
+@media (max-width: 1023px) {
+  html, body {
+    overflow-y: auto !important;
+    height: auto !important;
+    min-height: 100vh;
+  }
+}
+
+/* Desktop Fixed Single Viewport Layout */
+@media (min-width: 1024px) {
+  html, body {
+    overflow: hidden !important;
+    height: 100vh !important;
+    width: 100vw !important;
+  }
 }
 
 /* Circular Ripple View Transition animation for theme toggle */
