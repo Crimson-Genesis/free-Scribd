@@ -15,11 +15,20 @@ export interface TextItem {
   text: string;
 }
 
-export interface PageAsset {
-  pageNum: number;
-  imageUrl?: string;
+export interface ImageSpec {
+  url: string;
+  left: number;
+  top: number;
   width: number;
   height: number;
+  clip: { left: number; top: number; right: number; bottom: number } | null;
+}
+
+export interface PageAsset {
+  pageNum: number;
+  width: number;
+  height: number;
+  imgSpecs: ImageSpec[];
   textItems: TextItem[];
 }
 
@@ -33,10 +42,20 @@ export interface DocMetadata {
   pdfBlob?: Blob;
   pages: PageAsset[];
   createdAt: string;
+  thumbnailUrl?: string;
 }
 
 export interface ProcessingStepDetail {
   id: ProcessingStep;
   title: string;
   description: string;
+}
+
+export interface BotChallengeInfo {
+  docId: string;
+  title: string;
+  scribdUrl: string;
+  thumbnailUrl?: string;
+  pageCount?: number;
+  message?: string;
 }
